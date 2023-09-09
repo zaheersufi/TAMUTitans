@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <h2>Welcome to FinXAggInvest</h2>
+    <marquee> "Money, like emotions, is something you must control to keep your life on the right track.</marquee>
+    <marquee direction="right"
+             behavior="alternate"
+             style="border:BLACK 2px SOLID">
+        For Aggies, Made by Aggies
+    </marquee>
+
+  <!--Set background color as light maroon-->
+  <body style="background-color:hsla(0,100%,50%,0.5);">
+  </body>
+
+  </head>
+  <!--Style buttons-->
+  <style>
+    .button {
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 30px;
+      margin: 0px 0px;
+      cursor: pointer;
+      background-color: white;
+      border-radius: 8px;
+      transition-duration: 0.4s;
+      font-family: sans-serif;
+    }
+    
+    .button:hover {
+      background-color: maroon;
+      color: white;
+    }
+
+    .home {
+      position: absolute;
+      left: 20px;
+      top: 25%;
+      -ms-transform: translateY(-25%);
+      transform: translateY(-25%);
+    }
+
+    .goals {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .monthly_expenses {
+      position: absolute;
+      left: 20px;
+      top: 75%;
+      -ms-transform: translateY(-75%);
+      transform: translateY(-75%);
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border-top: none;
+      -ms-transform: translateX(50%);
+      transform: translateX(50%);
+    }
+
+  </style>
+  </head>
+
+  <div class = "home">
+    <!--Home button set up-->
+    <button class = "button tablinks" onclick = "options(event, 'HOME')">HOME</button>
+  </div>
+
+  <div class = "goals">
+    <button class="button tablinks " onclick = "options(event,'GOALS')">GOALS</button>
+  </div>
+
+  <div class = "monthly_expenses">
+    <button class="button tablinks" onclick = 
+    "options(event, 'EXPENSES')">EXPENSES</button>
+  </div>
+
+  <!-- CONTENTS WITHIN ONCLICKED BUTTON-->
+  <div id="HOME" class="tabcontent">
+    <h3>London</h3>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div id="GOALS" class="tabcontent">
+    <h3>040404</h3>
+    <p>IXDDDDDDD.</p>
+  </div>
+
+  <div id="EXPENSES" class="tabcontent">
+    <h3>Test123</h3>
+    <p>IM HANGRY.</p>
+  </div>
+
+  <!--Function that makes buttons work-->
+  <script>
+    function options(evt, tabs) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+    
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+    
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabs).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+<html>
+
+
+
