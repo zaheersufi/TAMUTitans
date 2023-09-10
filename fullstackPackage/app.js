@@ -11,6 +11,57 @@ let budgetDay;
 let remainingBalance;
 const data = {};
 
+
+const ctx = document.getElementById('myChart');
+
+const dates = Object.keys(data);
+const amounts = Object.values(data);
+  
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: dates,
+    datasets: [{
+      label: 'Personal',
+      data: amounts[0],
+      borderWidth: 1,
+      backgroundColor: '#9BD0F5'
+    },
+    {
+      label: 'School',
+      data: amounts[1],
+      borderWidth: 1,
+      backgroundColor: '#FFB1C1'
+    },
+    {
+      label: 'Food',
+      data: amounts[2],
+      borderWidth: 1,
+      backgroundColor: '#B596E2'
+    },
+    {
+      label: 'Miscellaneous',
+      data: amounts[3],
+      borderWidth: 1,
+      backgroundColor: '#B6E296'
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        stacked: true
+      },
+      x: {
+        stacked: true
+      }
+    }
+  }
+});
+
+
+
+
 function updateBudgetInfo() {
   // Get money from inputs from the budget info and spent
   personal_in = parseFloat(document.getElementById("personal_in").value);
@@ -55,7 +106,7 @@ function updateBudgetInfo() {
 }
 
 function spend() {
-    const category = document.getElementById("category").value;
+  const category = document.getElementById("category").value;
   const amount = parseFloat(document.getElementById("amount").value);
   const date = document.getElementById("date").value;
   
@@ -64,7 +115,6 @@ function spend() {
     return;
   }
   
-  balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
   remainingBalance -= amount;
 
   const dates = Object.keys(data);
@@ -113,6 +163,50 @@ if(category === 'Personal')
       data[date] = [0, 0, 0, amount]
     }
   }
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'Personal',
+        data: amounts[0],
+        borderWidth: 1,
+        backgroundColor: '#9BD0F5'
+      },
+      {
+        label: 'School',
+        data: amounts[1],
+        borderWidth: 1,
+        backgroundColor: '#FFB1C1'
+      },
+      {
+        label: 'Food',
+        data: amounts[2],
+        borderWidth: 1,
+        backgroundColor: '#B596E2'
+      },
+      {
+        label: 'Miscellaneous',
+        data: amounts[3],
+        borderWidth: 1,
+        backgroundColor: '#B6E296'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          stacked: true
+        },
+        x: {
+          stacked: true
+        }
+      }
+    }
+  });
+
+  
+  balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
   const remainingBudget = budgetDay[category] - balanceDay[Object.keys(budgetDay).indexOf(category)];
 
   let resultMessage = "";
@@ -122,7 +216,7 @@ if(category === 'Personal')
   } else {
     resultMessage = `You spent $${amount.toFixed(2)} on ${category}. You exceeded your budget by $${Math.abs(remainingBudget).toFixed(2)}.`;
   }
-
+  console.log("MADE IT HERE");
   document.getElementById("spendingResult").textContent = resultMessage;
   
   // Put values for remaining budget
@@ -131,4 +225,8 @@ if(category === 'Personal')
   document.getElementById("remFoodBudget").textContent = remFoodBudget.toFixed(2);
   document.getElementById("remMiscellaneousBudget").textContent = remMiscellaneousBudget.toFixed(2);
   document.getElementById("remainingBalance").textContent = remainingBalance.toFixed(2);
+
+  console.log(data);
+  console.log("MADE IT HERE 2");
+  
 }
