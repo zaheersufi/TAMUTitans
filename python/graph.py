@@ -68,10 +68,10 @@ def fill_by_dates(a, b, c):
     dict = {}
     for day in a:
         if day not in dict:
-            dict[day] = (0, 0, 0, 0)
+            dict[day] = [0, 0, 0, 0]
             dict[day][arrayIndex] = b
         else:
-            dict[day][arrayIndex] = b
+            dict[day][arrayIndex] = b + dict[day][arrayIndex]
     return dict
 
 all_values = fill_by_dates(values_in_column_a, values_in_column_b, values_in_column_c)
@@ -83,8 +83,7 @@ values = list(values_in_column_b)
 fig = plt.figure(figsize=(10, 5))
 
 # creating the bar plot
-plt.bar(dates, values, color='maroon',
-        width=0.4)
+plt.bar(dates, values, color='maroon',width=0.4)
 
 plt.xlabel("Date")
 plt.ylabel("Amounts")
