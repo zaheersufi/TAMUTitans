@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <link rel="stylesheet" href="fe_styles.css">
-  <script src="app.js"></script>
   <h2>Welcome to FinXAggInvest</h2>
     <marquee> "Money, like emotions, is something you must control to keep your life on the right track."</marquee>
     <marquee direction="right"
@@ -42,15 +41,19 @@
     <!-- display BUDGET FORMULA -->
     <h1>AGGIE BUDGET</h1>
     
+    <!--Budget Info-->
     <div class="budget-info">
       <h2>Budget Overview</h2>
       <ul style = "list-style: none;">
-        <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
-        <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
-        <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
-        <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+        <li><strong>Personal:</strong> $<input type="number" id="personal_in"></li>
+        <li><strong>School:</strong> $<input type="number" id="school_in"></li>
+        <li><strong>Food:</strong> $<input type="number" id="food_in"></li>
+        <li><strong>Miscellaneous:</strong> $<input type="number" id="mis_in"></li>
       </ul>
+      <button onclick="updateBudgetInfo()">Update</button>
     </div>
+
+    <!--Spending Info-->
     <div class="spending">
       <h2>Spending</h2>
 
@@ -65,7 +68,7 @@
       <label for="amount">Enter Amount:</label>
       <input type="number" id="amount">
       <br>
-      <button onclick="spend()">Spend</button>
+      <button onclick="test_input()">Spend</button>
     </div>
     
     <!-- Remanining balance-->
@@ -78,13 +81,15 @@
         <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
         <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
       </ul>
-  </div>
+  
+   <!--End Results-->
+   </div>
     <div class="result">
       <h2>Spending Result</h2>
       <p id="spendingResult"></p>
     </div>
 
-  </div>
+   </div>
 
   <div id="GOALS" class="tabcontent">
     <h3>040404</h3>
@@ -119,6 +124,8 @@
       evt.currentTarget.className += " active";
     }
   </script>
+
+  <script src="app.js"></script>
 <html>
 
 

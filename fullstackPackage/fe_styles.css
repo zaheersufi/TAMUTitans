@@ -68,8 +68,8 @@
     border-radius: 5px;
     background-color: white;
     border-radius: 8px;
-    -ms-transform: translate(-90%, 25%);
-    transform: translate(-90%, 25%);
+    -ms-transform: translate(-90%, 30%);
+    transform: translate(-90%, 30%);
     width: 370px;
 }
 
@@ -82,14 +82,14 @@
 }
 
 .result {
-    position: absolute;
+    position: relative;
     margin: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
-    -ms-transform: translate(30%, 25%);
-    transform: translate(30%, 25%);
+    -ms-transform: translate(30%, -600%);
+    transform: translate(30%, -600%);
     width: 370px;
 }
 
