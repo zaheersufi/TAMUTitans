@@ -100,34 +100,62 @@
         <li> <span id="spendingResult"></span></li>
       </ul>
     </div>
-   </div>
 
-   <!--Graphing things-->
-   <canvas id="budgetChart" style="width:100%;max-width:700px"></canvas>
-   <script>
-    const xValues = ["Day1", "Day2", "Day3", "USA", "Argentina"];
-    const yValues = [55, 49, 44, 24, 15];
-    const barColors = ["red", "green","blue","orange","brown"];
-    
-    new Chart("budgetChart", {
-      type: "bar",
+    <!--Graphing things-->
+   
+   <div>
+    <canvas id="myChart"></canvas>
+   </div>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
       data: {
-        labels: xValues,
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-          backgroundColor: barColors,
-          data: yValues
+          label: 'Personal',
+          data: [12, 19, 3, 5, 10, 3],
+          borderWidth: 1,
+          backgroundColor: '#9BD0F5'
+        },
+        {
+          label: 'School',
+          data: [12, 19, 3, 5, 10, 3],
+          borderWidth: 1,
+          backgroundColor: '#FFB1C1'
+        },
+        {
+          label: 'Food',
+          data: [12, 19, 3, 5, 10, 3],
+          borderWidth: 1,
+          backgroundColor: '#B596E2'
+        },
+        {
+          label: 'Miscellaneous',
+          data: [12, 19, 3, 5, 10, 3],
+          borderWidth: 1,
+          backgroundColor: '#B6E296'
         }]
       },
       options: {
-        legend: {display: false},
-        title: {
-          display: true,
-          text: "World Wine Production 2018"
+        scales: {
+          y: {
+            beginAtZero: true,
+            stacked: true
+          },
+          x: {
+            stacked: true
+          }
         }
       }
     });
-    </script>
+   </script>
+   </div>
 
+   
+   
   <div id="GOALS" class="tabcontent">
     <div class="budget-info">
       <h2>Monthly Goals</h2>
