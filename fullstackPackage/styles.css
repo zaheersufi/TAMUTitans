@@ -25,11 +25,14 @@ li {
 }
 
 .spending {
+    position: absolute;
     margin: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    -ms-transform: translateX(1%);
+    transform: translateX(1%);
 }
 
 label {
@@ -56,4 +59,5 @@ button {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+
 }
