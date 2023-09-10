@@ -14,7 +14,7 @@
   <body style="background-color:hsla(0,100%,50%,0.5);">
   </body>
 
-  <<style>
+  <style>
     body {
       background-image: url(https://i.pinimg.com/564x/dc/e4/ed/dce4ed8452dfb9f9a78aca5cb0ed2b57.jpg);
       background-repeat: no-repeat;
@@ -43,16 +43,17 @@
     <h1>AGGIE BUDGET</h1>
     
     <div class="budget-info">
-        <h2>Budget Overview</h2>
-        <ul>
-            <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
-            <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
-            <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
-            <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
-        </ul>
+      <h2>Budget Overview</h2>
+      <ul style = "list-style: none;">
+        <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
+        <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
+        <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
+        <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+      </ul>
     </div>
     <div class="spending">
       <h2>Spending</h2>
+
       <label for="category">Select Category:</label>
       <select id="category">
           <option value="Personal">Personal</option>
@@ -67,6 +68,17 @@
       <button onclick="spend()">Spend</button>
     </div>
     
+    <!-- Remanining balance-->
+    <div class="remaining-balance">
+      <h2>Remaining Balance</h2>
+      <ul style = "list-style: none;">
+        <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
+        <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
+        <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
+        <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
+        <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
+      </ul>
+  </div>
     <div class="result">
       <h2>Spending Result</h2>
       <p id="spendingResult"></p>

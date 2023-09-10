@@ -38,7 +38,10 @@
   body {
     font-family: Arial, sans-serif;
     text-align: center;
+    overflow-x: hidden; /* Add this line to prevent horizontal scrolling */
+    overflow-y: scroll;
 }
+
 
 .h1 {
     color: #333;
@@ -51,32 +54,23 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    width: 350px;
-    left: -425px;
-    top: -50px;
+    -ms-transform: translate(-90%, 25%);
+    transform: translate(-90%, 25%);
+    width: 370px;
 
-}
-
-.ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.li {
-    margin: 5px 0;
 }
 
 .spending {
     position: relative;
     margin: 20px;
     padding: 10px;
-    width: 300px;
     border: 0px solid #ccc;
     border-radius: 5px;
     background-color: white;
     border-radius: 8px;
-    top: -40px;
-    left: -400px;
+    -ms-transform: translate(-90%, 25%);
+    transform: translate(-90%, 25%);
+    width: 370px;
 }
 
 .label {
@@ -88,14 +82,15 @@
 }
 
 .result {
-    position: relative;
+    position: absolute;
     margin: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
-    -ms-transform: translateX(10%);
-    transform: translateX(10%);
+    -ms-transform: translate(30%, 25%);
+    transform: translate(30%, 25%);
+    width: 370px;
 }
 
   .monthly_expenses {
@@ -113,3 +108,15 @@
     -ms-transform: translateX(50%);
     transform: translateX(50%);
   }
+
+  .remaining-balance {
+    position: relative;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    -ms-transform: translate(-90%, 25%);
+    transform: translate(-90%, 25%);
+    width: 370px;
+}
