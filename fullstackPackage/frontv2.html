@@ -1,120 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="fe_styles.css">
-    <style>
-        body {
-            background-image: url('https://i.pinimg.com/564x/dc/e4/ed/dce4ed8452dfb9f9a78aca5cb0ed2b57.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            background-color: hsla(0, 100%, 50%, 0.5);
-        }
-    </style>
+  <link rel="stylesheet" href="fe_styles.css">
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
-    <h1>FinXAggInvest</h1>
-    <marquee>"Money, like emotions, is something you must control to keep your life on the right track."</marquee>
-    
-    <marquee direction="right" behavior="alternate" style="border: BLACK 2px SOLID">
-        For Aggies, Made by Aggies
-    </marquee>
-    
-    <img class="animated-gif" src="https://media.giphy.com/media/ry6LoyZQnp9tlPQexY/giphy.gif">
-    
-    <div class="home">
-        <button class="css-button-retro--red tablinks" onclick="options(event, 'HOME')">HOME</button>
-    </div>
-    
-    <div class="goals">
-        <button class="css-button-retro--red tablinks" onclick="options(event, 'GOALS')">GOALS</button>
-    </div>
-    
-    <div class="monthly_expenses">
-        <button class="css-button-retro--red tablinks" onclick="options(event, 'EXPENSES')">EXPENSES</button>
-    </div>
-    
-    <div id="HOME" class="tabcontent">
-        <h1>AGGIE BUDGET</h1>
-        
-        <div class="budget-info">
-            <h2>Budget Overview</h2>
-            <ul style="list-style: none;">
-                <li><strong>Personal:</strong> $<input type="number" id="personal_in"></li>
-                <li><strong>School:</strong> $<input type="number" id="school_in"></li>
-                <li><strong>Food:</strong> $<input type="number" id="food_in"></li>
-                <li><strong>Miscellaneous:</strong> $<input type="number" id="mis_in"></li>
-            </ul>
-            <button onclick="updateBudgetInfo()">Update</button>
-        </div>
-        
-        <div class="spending">
-            <h2>Spending</h2>
-            
-            <label for="category">Select Category:</label>
-            <select id="category">
-                <option value="Personal">Personal</option>
-                <option value="School">School</option>
-                <option value="Food">Food</option>
-                <option value="Miscellaneous">Miscellaneous</option>
-            </select>
-            <br>
-            <label for="amount">Enter Amount:</label>
-            <input type="number" id="amount">
-            <br>
-            <button onclick="spend()">Spend</button>
-        </div>
-        
-        <div class="remaining-balance">
-            <h2>Remaining Balance</h2>
-            <ul style="list-style: none;">
-                <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
-                <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
-                <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
-                <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
-                <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
-            </ul>
-        </div>
-        
-        <div class="result">
-            <h2>Spending Result</h2>
-            <p id="spendingResult"></p>
-        </div>
-    </div>
-    
-    <div id="GOALS" class="tabcontent">
-        <h3>040404</h3>
-        <p>IXDDDDDDD.</p>
-    </div>
-    
-    <div id="EXPENSES" class="tabcontent">
-        <h3>Test123</h3>
-        <p>IM HANGRY.</p>
-    </div>
-    
-    <script>
-        function options(evt, tabs) {
-            // Declare all variables
-            var i, tabcontent, tablinks;
+<body style="background-color:hsla(0,100%,50%,0.5);">
+  <h1 align="left">FinXAggInvest</h1>
+  <marquee>"Money, like emotions, is something you must control to keep your life on the right track."</marquee>
+  <marquee direction="right" behavior="alternate" style="border:BLACK 2px SOLID">
+    For Aggies, Made by Aggies
+  </marquee>
+  <img class="animated-gif" src="https://www.clipartmax.com/png/full/262-2628243_icon-artworks-is-proud-to-pay-tribute-to-texas-a-ms-texas.png">
 
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
+  <div class="home">
+    <button class="css-button-retro--red tablinks" onclick="options(event, 'HOME')">HOME</button>
+  </div>
 
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
+  <div class="goals">
+    <button class="css-button-retro--red tablinks" onclick="options(event,'GOALS')">GOALS</button>
+  </div>
 
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tabs).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
+  <div class="monthly_expenses">
+    <button class="css-button-retro--red tablinks" onclick="options(event, 'EXPENSES')">EXPENSES</button>
+  </div>
+
+  <div id="HOME" class="tabcontent">
+    <h1>AGGIE BUDGET</h1>
     
-    <script src="app.js"></script>
+    <div class="budget-info">
+      <h2>Budget Overview</h2>
+      <ul style="list-style: none;">
+        <li><strong>Personal:</strong> $<input type="number" id="personal_in"></li>
+        <li><strong>School:</strong> $<input type="number" id="school_in"></li>
+        <li><strong>Food:</strong> $<input type="number" id="food_in"></li>
+        <li><strong>Miscellaneous:</strong> $<input type="number" id="mis_in"></li>
+      </ul>
+      <button onclick="updateBudgetInfo()">Update</button>
+    </div>
+
+    <div class="spending">
+      <h2>Spending</h2>
+      <label for="category">Select Category:</label>
+      <select id="category">
+        <option value="Personal">Personal</option>
+        <option value="School">School</option>
+        <option value="Food">Food</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+      </select>
+      <br>
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount">
+      <br>
+      <button onclick="spend()">Spend</button>
+    </div>
+    
+    <div class="remaining-balance">
+      <h2>Remaining Balance</h2>
+      <ul style="list-style: none;">
+        <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
+        <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
+        <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
+        <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
+        <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
+      </ul>
+    </div>
+    <div class="result">
+      <h2>Spending Result</h2>
+      <p id="spendingResult"></p>
+    </div>
+  </div>
+
+  <div id="GOALS" class="tabcontent">
+    <h3>Financial Goals</h3>
+    <p>Set and track your financial goals here. Plan for your future financial success!</p>
+
+    <form id="goalForm">
+      <label for="goalName">Goal Name:</label>
+      <input type="text" id="goalName" placeholder="E.g., Emergency Fund"><br>
+
+      <label for="goalAmount">Goal Amount ($):</label>
+      <input type="number" id="goalAmount" placeholder="E.g., 10000"><br>
+
+      <label for="goalDeadline">Deadline:</label>
+      <input type="date" id="goalDeadline"><br>
+
+      <button onclick="addGoal()">Set Goal</button>
+    </form>
+
+    <div id="goalList">
+      <h4>Your Financial Goals:</h4>
+      <ul id="goalsUl">
+        <!-- List of goals will appear here -->
+      </ul>
+    </div>
+  </div>
+
+  <div id="EXPENSES" class="tabcontent">
+    <h3>Test123</h3>
+    <p>IM HANGRY.</p>
+  </div>
+
+  <script>
+    function options(evt, tabs) {
+      var i, tabcontent, tablinks;
+    
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+    
+      document.getElementById(tabs).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // JavaScript code to handle financial goals
+    const goalForm = document.getElementById("goalForm");
+    const goalsUl = document.getElementById("goalsUl");
+
+    function addGoal() {
+      const goalName = document.getElementById("goalName").value;
+      const goalAmount = document.getElementById("goalAmount").value;
+      const goalDeadline = document.getElementById("goalDeadline").value;
+
+      const li = document.createElement("li");
+      li.textContent = `${goalName} - $${goalAmount} by ${goalDeadline}`;
+
+      goalsUl.appendChild(li);
+
+      goalForm.reset();
+    }
+  </script>
 </body>
 </html>

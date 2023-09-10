@@ -82,8 +82,8 @@
  img.animated-gif{
   width: 70px;
   height: auto;
-  -ms-transform:translate(340%,-170%);
-  transform: translate(340%, -170%);
+  -ms-transform:translate(300%,-200%);
+  transform: translate(300%, -200%);
  }
 .label {
     font-weight: bold;
