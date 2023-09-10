@@ -1,14 +1,3 @@
-
-import low from '/lowdb';
-import FileSync from 'lowdb/adapter/FileSync';
-
-const moneyLimitMonth = [900, 900, 900, 900];
-const budgetDay = {
-  Personal: moneyLimitMonth[0] / 30,
-  School: moneyLimitMonth[1] / 30,
-  Food: moneyLimitMonth[2] / 30,
-  Miscellaneous: moneyLimitMonth[3] / 30,
-};
 const balanceDay = [0, 0, 0, 0];
 let remPersonalBudget;
 let remSchoolBudget;
@@ -19,6 +8,7 @@ let school_in;
 let food_in;
 let mis_in;
 let budgetDay;
+let remainingBalance;
 
 function updateBudgetInfo() {
   // Get money from inputs from the budget info and spent
@@ -47,7 +37,7 @@ function updateBudgetInfo() {
 
   // Create variables
   let totalBalance = budgetDay.Personal + budgetDay.School + budgetDay.Food + budgetDay.Miscellaneous;
-  let remainingBalance = totalBalance; //money starting off with
+  remainingBalance = totalBalance; //money starting off with
 
   // Remaining budget
   remPersonalBudget = budgetDay.Personal;
@@ -72,8 +62,11 @@ function spend() {
     return;
   }
   
-  balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
-  remainingBalance -= amount;
+  console.log("BEFORE" + remainingBalance);
+  // balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
+  remainingBalance = remainingBalance - amount;
+  console.log(amount);
+  console.log(remainingBalance);
 
   if(category === 'Personal')
   {
