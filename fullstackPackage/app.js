@@ -1,3 +1,4 @@
+//commment
 const balanceDay = [0, 0, 0, 0];
 let remPersonalBudget;
 let remSchoolBudget;
