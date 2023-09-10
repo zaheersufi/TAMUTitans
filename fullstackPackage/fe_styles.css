@@ -5,7 +5,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 50px;
     margin: 0px 0px;
     cursor: pointer;
     background-color: white;
@@ -22,17 +22,17 @@
   .home {
     position: absolute;
     left: 20px;
-    top: 25%;
-    -ms-transform: translateY(-25%);
-    transform: translateY(-25%);
+    top: 20%;
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
   }
 
   .goals {
     position: absolute;
     left: 20px;
     top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-20%);
+    transform: translateY(-20%);
   }
 
   .body {
@@ -73,10 +73,10 @@
     width: 370px;
 }
  img.animated-gif{
-  width: 240px;
+  width: 70px;
   height: auto;
-  -ms-transform:translate(250,-120%);
-  transform: translate(250%, -120%);
+  -ms-transform:translate(340%,-170%);
+  transform: translate(340%, -170%);
  }
 .label {
     font-weight: bold;

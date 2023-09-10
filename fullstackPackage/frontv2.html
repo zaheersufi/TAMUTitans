@@ -2,138 +2,55 @@
 <html>
 <head>
     <link rel="stylesheet" href="fe_styles.css">
-    <script src="app.js"></script>
     <style>
         body {
-            background-image: url(https://i.pinimg.com/564x/dc/e4/ed/dce4ed8452dfb9f9a78aca5cb0ed2b57.jpg);
+            background-image: url('https://i.pinimg.com/564x/dc/e4/ed/dce4ed8452dfb9f9a78aca5cb0ed2b57.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        h2 {
-            background-color: maroon;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        marquee {
-            text-align: center;
-            background-color: maroon;
-            color: white;
-            padding: 5px;
-        }
-
-        marquee.text {
-            animation: marqueeAnim 8s linear infinite;
-        }
-
-        @keyframes marqueeAnim {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            margin: 10px;
-            cursor: pointer;
-            background-color: maroon;
-            border-radius: 8px;
-            transition-duration: 0.4s;
-            font-family: sans-serif;
-        }
-
-        .button:hover {
-            background-color: #550000;
-        }
-
-        .tabcontent {
-            display: none;
-            padding: 20px;
-            border: 2px solid maroon;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
-        .active-tab {
-            display: block;
-        }
-
-        /* Additional Styling */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 5px 0;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: hsla(0, 100%, 50%, 0.5);
         }
     </style>
 </head>
 <body>
-    <h2>Welcome to FinXAggInvest</h2>
-    <marquee class="text">
-        "Money, like emotions, is something you must control to keep your life on the right track."
-    </marquee>
+    <h1>FinXAggInvest</h1>
+    <marquee>"Money, like emotions, is something you must control to keep your life on the right track."</marquee>
+    
     <marquee direction="right" behavior="alternate" style="border: BLACK 2px SOLID">
         For Aggies, Made by Aggies
     </marquee>
-
-    <!--Set background color as light maroon-->
-    <div class="container">
-        <!--Home button set up-->
-        <button class="button tablinks" onclick="options(event, 'HOME')">HOME</button>
-        <button class="button tablinks" onclick="options(event,'GOALS')">GOALS</button>
-        <button class="button tablinks" onclick="options(event, 'EXPENSES')">EXPENSES</button>
+    
+    <img class="animated-gif" src="https://media.giphy.com/media/ry6LoyZQnp9tlPQexY/giphy.gif">
+    
+    <div class="home">
+        <button class="css-button-retro--red tablinks" onclick="options(event, 'HOME')">HOME</button>
     </div>
-
-    <!-- CONTENTS WITHIN ONCLICKED BUTTON-->
+    
+    <div class="goals">
+        <button class="css-button-retro--red tablinks" onclick="options(event, 'GOALS')">GOALS</button>
+    </div>
+    
+    <div class="monthly_expenses">
+        <button class="css-button-retro--red tablinks" onclick="options(event, 'EXPENSES')">EXPENSES</button>
+    </div>
+    
     <div id="HOME" class="tabcontent">
-        <!-- display BUDGET FORMULA -->
         <h1>AGGIE BUDGET</h1>
-
+        
         <div class="budget-info">
             <h2>Budget Overview</h2>
-            <ul>
-                <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
-                <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
-                <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
-                <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+            <ul style="list-style: none;">
+                <li><strong>Personal:</strong> $<input type="number" id="personal_in"></li>
+                <li><strong>School:</strong> $<input type="number" id="school_in"></li>
+                <li><strong>Food:</strong> $<input type="number" id="food_in"></li>
+                <li><strong>Miscellaneous:</strong> $<input type="number" id="mis_in"></li>
             </ul>
+            <button onclick="updateBudgetInfo()">Update</button>
         </div>
+        
         <div class="spending">
             <h2>Spending</h2>
-
+            
             <label for="category">Select Category:</label>
             <select id="category">
                 <option value="Personal">Personal</option>
@@ -147,11 +64,10 @@
             <br>
             <button onclick="spend()">Spend</button>
         </div>
-
-        <!-- Remaining balance -->
+        
         <div class="remaining-balance">
             <h2>Remaining Balance</h2>
-            <ul>
+            <ul style="list-style: none;">
                 <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
                 <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
                 <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
@@ -159,23 +75,23 @@
                 <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
             </ul>
         </div>
+        
         <div class="result">
             <h2>Spending Result</h2>
             <p id="spendingResult"></p>
         </div>
     </div>
-
+    
     <div id="GOALS" class="tabcontent">
         <h3>040404</h3>
         <p>IXDDDDDDD.</p>
     </div>
-
+    
     <div id="EXPENSES" class="tabcontent">
         <h3>Test123</h3>
         <p>IM HANGRY.</p>
     </div>
-
-    <!-- Function that makes buttons work -->
+    
     <script>
         function options(evt, tabs) {
             // Declare all variables
@@ -198,5 +114,7 @@
             evt.currentTarget.className += " active";
         }
     </script>
+    
+    <script src="app.js"></script>
 </body>
 </html>
