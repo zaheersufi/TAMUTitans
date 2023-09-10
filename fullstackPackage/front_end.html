@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="fe_styles.css">
+  <script src="app.js"></script>
   <h2>Welcome to FinXAggInvest</h2>
-    <marquee> "Money, like emotions, is something you must control to keep your life on the right track.</marquee>
+    <marquee> "Money, like emotions, is something you must control to keep your life on the right track."</marquee>
     <marquee direction="right"
              behavior="alternate"
              style="border:BLACK 2px SOLID">
@@ -11,65 +13,6 @@
   <!--Set background color as light maroon-->
   <body style="background-color:hsla(0,100%,50%,0.5);">
   </body>
-
-  </head>
-  <!--Style buttons-->
-  <style>
-    .button {
-      border: none;
-      color: black;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 30px;
-      margin: 0px 0px;
-      cursor: pointer;
-      background-color: white;
-      border-radius: 8px;
-      transition-duration: 0.4s;
-      font-family: sans-serif;
-    }
-    
-    .button:hover {
-      background-color: maroon;
-      color: white;
-    }
-
-    .home {
-      position: absolute;
-      left: 20px;
-      top: 25%;
-      -ms-transform: translateY(-25%);
-      transform: translateY(-25%);
-    }
-
-    .goals {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-    }
-
-    .monthly_expenses {
-      position: absolute;
-      left: 20px;
-      top: 75%;
-      -ms-transform: translateY(-75%);
-      transform: translateY(-75%);
-    }
-
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border-top: none;
-      -ms-transform: translateX(50%);
-      transform: translateX(50%);
-    }
-
-  </style>
-  </head>
 
   <div class = "home">
     <!--Home button set up-->
@@ -87,8 +30,39 @@
 
   <!-- CONTENTS WITHIN ONCLICKED BUTTON-->
   <div id="HOME" class="tabcontent">
-    <h3>London</h3>
-    <p>London is the capital city of England.</p>
+    <!-- display BUDGET FORMULA -->
+    <h1>AGGIE BUDGET</h1>
+    
+    <div class="budget-info">
+        <h2>Budget Overview</h2>
+        <ul>
+            <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
+            <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
+            <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
+            <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+        </ul>
+    </div>
+    <div class="spending">
+      <h2>Spending</h2>
+      <label for="category">Select Category:</label>
+      <select id="category">
+          <option value="Personal">Personal</option>
+          <option value="School">School</option>
+          <option value="Food">Food</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+      </select>
+      <br>
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount">
+      <br>
+      <button onclick="spend()">Spend</button>
+    </div>
+    
+    <div class="result">
+      <h2>Spending Result</h2>
+      <p id="spendingResult"></p>
+    </div>
+
   </div>
 
   <div id="GOALS" class="tabcontent">
