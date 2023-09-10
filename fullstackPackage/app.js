@@ -1,4 +1,6 @@
-import axios from "axios";
+
+import low from '/lowdb';
+import FileSync from 'lowdb/adapter/FileSync';
 
 const moneyLimitMonth = [900, 900, 900, 900];
 const budgetDay = {

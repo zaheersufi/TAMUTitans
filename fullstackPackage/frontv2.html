@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinXAggInvest - Your Financial Companion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fe_styles.css">
+    <script src="app.js"></script>
     <style>
         body {
-            background-color: #f3f3f3;
-            font-family: Arial, sans-serif;
+            background-image: url(https://i.pinimg.com/564x/dc/e4/ed/dce4ed8452dfb9f9a78aca5cb0ed2b57.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Add this line to prevent horizontal scrolling */
-
         }
 
-        h1 {
+        h2 {
             background-color: maroon;
             color: white;
             padding: 20px;
             text-align: center;
         }
 
-        .marquee {
+        marquee {
             text-align: center;
             background-color: maroon;
             color: white;
             padding: 5px;
         }
 
-        .marquee-text {
+        marquee.text {
             animation: marqueeAnim 8s linear infinite;
         }
 
@@ -69,6 +67,10 @@
 
         .tabcontent {
             display: none;
+            padding: 20px;
+            border: 2px solid maroon;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .active-tab {
@@ -76,24 +78,12 @@
         }
 
         /* Additional Styling */
-        .budget-info, .remaining-balance, .spending, .result {
-            margin: 20px;
-            padding: 20px;
-            border: 2px solid maroon;
-            border-radius: 8px;
-            background-color: white;
-        }
-
-        h2 {
-            color: maroon;
-        }
-
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
         }
 
-        ul li {
+        li {
             margin: 5px 0;
         }
 
@@ -111,55 +101,102 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to FinXAggInvest</h1>
-    <div class="marquee">
-        <p class="marquee-text">
-            "Money, like emotions, is something you must control to keep your life on the right track."
-        </p>
-    </div>
- 
-    <div class="budget-info">
-        <h2>Budget Overview</h2>
-        <ul>
-            <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
-            <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
-            <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
-            <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
-            <li><strong>Total Budget:</strong> $<span id="totalBalance"></span></li>
-        </ul>
-    </div>
-    <div class="remaining-balance">
-        <h2>Remaining Balance</h2>
-        <ul>
-            <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
-            <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
-            <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
-            <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
-            <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
-        </ul>
+    <h2>Welcome to FinXAggInvest</h2>
+    <marquee class="text">
+        "Money, like emotions, is something you must control to keep your life on the right track."
+    </marquee>
+    <marquee direction="right" behavior="alternate" style="border: BLACK 2px SOLID">
+        For Aggies, Made by Aggies
+    </marquee>
+
+    <!--Set background color as light maroon-->
+    <div class="container">
+        <!--Home button set up-->
+        <button class="button tablinks" onclick="options(event, 'HOME')">HOME</button>
+        <button class="button tablinks" onclick="options(event,'GOALS')">GOALS</button>
+        <button class="button tablinks" onclick="options(event, 'EXPENSES')">EXPENSES</button>
     </div>
 
-    <div class="spending">
-        <h2>Spending</h2>
-        <label for="category">Select Category:</label>
-        <select id="category">
-            <option value="Personal">Personal</option>
-            <option value="School">School</option>
-            <option value="Food">Food</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-        </select>
-        <br>
-        <label for="amount">Enter Amount:</label>
-        <input type="number" id="amount">
-        <br>
-        <button class="button" onclick="spend()">Spend</button>
+    <!-- CONTENTS WITHIN ONCLICKED BUTTON-->
+    <div id="HOME" class="tabcontent">
+        <!-- display BUDGET FORMULA -->
+        <h1>AGGIE BUDGET</h1>
+
+        <div class="budget-info">
+            <h2>Budget Overview</h2>
+            <ul>
+                <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
+                <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
+                <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
+                <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+            </ul>
+        </div>
+        <div class="spending">
+            <h2>Spending</h2>
+
+            <label for="category">Select Category:</label>
+            <select id="category">
+                <option value="Personal">Personal</option>
+                <option value="School">School</option>
+                <option value="Food">Food</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+            <br>
+            <label for="amount">Enter Amount:</label>
+            <input type="number" id="amount">
+            <br>
+            <button onclick="spend()">Spend</button>
+        </div>
+
+        <!-- Remaining balance -->
+        <div class="remaining-balance">
+            <h2>Remaining Balance</h2>
+            <ul>
+                <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
+                <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
+                <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
+                <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
+                <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
+            </ul>
+        </div>
+        <div class="result">
+            <h2>Spending Result</h2>
+            <p id="spendingResult"></p>
+        </div>
     </div>
 
-    <div class="result">
-        <h2>Spending Result</h2>
-        <p id="spendingResult"></p>
+    <div id="GOALS" class="tabcontent">
+        <h3>040404</h3>
+        <p>IXDDDDDDD.</p>
     </div>
 
-    <script src="app.js"></script>
+    <div id="EXPENSES" class="tabcontent">
+        <h3>Test123</h3>
+        <p>IM HANGRY.</p>
+    </div>
+
+    <!-- Function that makes buttons work -->
     <script>
-        function showHome()
+        function options(evt, tabs) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabs).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
