@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <link rel="stylesheet" href="fe_styles.css">
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
   </script>
@@ -111,49 +111,7 @@
    </div>
   
   <script>
-    const ctx = document.getElementById('myChart');
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Day1', 'Day2', 'Day3', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: 'Personal',
-          data: [12, 19, 3, 5, 10, 3],
-          borderWidth: 1,
-          backgroundColor: '#9BD0F5'
-        },
-        {
-          label: 'School',
-          data: [12, 19, 3, 5, 10, 3],
-          borderWidth: 1,
-          backgroundColor: '#FFB1C1'
-        },
-        {
-          label: 'Food',
-          data: [12, 19, 3, 5, 10, 3],
-          borderWidth: 1,
-          backgroundColor: '#B596E2'
-        },
-        {
-          label: 'Miscellaneous',
-          data: [12, 19, 3, 5, 10, 3],
-          borderWidth: 1,
-          backgroundColor: '#B6E296'
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            stacked: true
-          },
-          x: {
-            stacked: true
-          }
-        }
-      }
-    });
+    
    </script>
    </div>
 
