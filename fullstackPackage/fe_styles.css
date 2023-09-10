@@ -55,6 +55,7 @@
 }
 
 .budget-info {
+  color: black;
     position: relative;
     margin: 20px;
     padding: 10px;
@@ -68,6 +69,7 @@
 }
 
 .spending {
+  color: black;
     position: relative;
     margin: 20px;
     padding: 10px;
@@ -112,6 +114,7 @@
 
 
 .result {
+  color: black;
     position: relative;
     margin: 20px;
     padding: 10px;
@@ -124,6 +127,7 @@
 }
 
   .monthly_expenses {
+    color: black;
     position: absolute;
     left: 20px;
     top: 75%;
@@ -140,6 +144,7 @@
   }
 
   .remaining-balance {
+    color: black;
     position: relative;
     margin: 20px;
     padding: 10px;
@@ -472,4 +477,11 @@ h6 span{
   left: 5px;
   transition: 0.2s;
   background-color: #ae3341;
+}
+
+.graphing {
+  position: relative;
+  width: 500px;
+  left: 100px;
+  top: -450px;
 }
