@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of c20177a (Revert "Merge branch 'main' of https://github.com/zaheersufi/TAMUTitans")
 
 import low from '/lowdb';
 import FileSync from 'lowdb/adapter/FileSync';
@@ -14,7 +9,6 @@ const budgetDay = {
   Food: moneyLimitMonth[2] / 30,
   Miscellaneous: moneyLimitMonth[3] / 30,
 };
->>>>>>> parent of c20177a (Revert "Merge branch 'main' of https://github.com/zaheersufi/TAMUTitans")
 const balanceDay = [0, 0, 0, 0];
 let remPersonalBudget;
 let remSchoolBudget;
