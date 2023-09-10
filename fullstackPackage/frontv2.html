@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinXAggInvest - Your Financial Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Add this line to prevent horizontal scrolling */
+
+        }
+
+        h1 {
+            background-color: maroon;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .marquee {
+            text-align: center;
+            background-color: maroon;
+            color: white;
+            padding: 5px;
+        }
+
+        .marquee-text {
+            animation: marqueeAnim 8s linear infinite;
+        }
+
+        @keyframes marqueeAnim {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: maroon;
+            border-radius: 8px;
+            transition-duration: 0.4s;
+            font-family: sans-serif;
+        }
+
+        .button:hover {
+            background-color: #550000;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+
+        .active-tab {
+            display: block;
+        }
+
+        /* Additional Styling */
+        .budget-info, .remaining-balance, .spending, .result {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid maroon;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        h2 {
+            color: maroon;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to FinXAggInvest</h1>
+    <div class="marquee">
+        <p class="marquee-text">
+            "Money, like emotions, is something you must control to keep your life on the right track."
+        </p>
+    </div>
+ 
+    <div class="budget-info">
+        <h2>Budget Overview</h2>
+        <ul>
+            <li><strong>Personal:</strong> $<span id="personalBudget"></span></li>
+            <li><strong>School:</strong> $<span id="schoolBudget"></span></li>
+            <li><strong>Food:</strong> $<span id="foodBudget"></span></li>
+            <li><strong>Miscellaneous:</strong> $<span id="miscellaneousBudget"></span></li>
+            <li><strong>Total Budget:</strong> $<span id="totalBalance"></span></li>
+        </ul>
+    </div>
+    <div class="remaining-balance">
+        <h2>Remaining Balance</h2>
+        <ul>
+            <li><strong>Personal:</strong> $<span id="remPersonalBudget"></span></li>
+            <li><strong>School:</strong> $<span id="remSchoolBudget"></span></li>
+            <li><strong>Food:</strong> $<span id="remFoodBudget"></span></li>
+            <li><strong>Miscellaneous:</strong> $<span id="remMiscellaneousBudget"></span></li>
+            <li><strong>Remaining Balance:</strong> $<span id="remainingBalance"></span></li>
+        </ul>
+    </div>
+
+    <div class="spending">
+        <h2>Spending</h2>
+        <label for="category">Select Category:</label>
+        <select id="category">
+            <option value="Personal">Personal</option>
+            <option value="School">School</option>
+            <option value="Food">Food</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+        <br>
+        <label for="amount">Enter Amount:</label>
+        <input type="number" id="amount">
+        <br>
+        <button class="button" onclick="spend()">Spend</button>
+    </div>
+
+    <div class="result">
+        <h2>Spending Result</h2>
+        <p id="spendingResult"></p>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function showHome()
