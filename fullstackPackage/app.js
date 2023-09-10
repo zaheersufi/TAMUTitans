@@ -54,7 +54,7 @@ function updateBudgetInfo() {
 }
 
 function spend() {
-  const category = document.getElementById("category").value;
+    const category = document.getElementById("category").value;
   const amount = parseFloat(document.getElementById("amount").value);
   
   if (isNaN(amount) || amount <= 0) {
@@ -62,16 +62,12 @@ function spend() {
     return;
   }
   
-  console.log("BEFORE" + remainingBalance);
-  // balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
-  remainingBalance = remainingBalance - amount;
-  console.log(amount);
-  console.log(remainingBalance);
+  balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
+  remainingBalance -= amount;
 
   if(category === 'Personal')
   {
     remPersonalBudget -= amount;
-    personal_in -= amount;
   }
   else if(category === "School")
   {
@@ -105,11 +101,3 @@ function spend() {
   document.getElementById("remMiscellaneousBudget").textContent = remMiscellaneousBudget.toFixed(2);
   document.getElementById("remainingBalance").textContent = remainingBalance.toFixed(2);
 }
-
-
-
-
-
-
-
-
