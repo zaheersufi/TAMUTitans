@@ -9,6 +9,7 @@ let food_in;
 let mis_in;
 let budgetDay;
 let remainingBalance;
+const data = {};
 
 function updateBudgetInfo() {
   // Get money from inputs from the budget info and spent
@@ -56,6 +57,7 @@ function updateBudgetInfo() {
 function spend() {
     const category = document.getElementById("category").value;
   const amount = parseFloat(document.getElementById("amount").value);
+  const date = document.getElementById("date").value;
   
   if (isNaN(amount) || amount <= 0) {
     alert("Please enter a valid positive amount.");
@@ -65,23 +67,52 @@ function spend() {
   balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
   remainingBalance -= amount;
 
-  if(category === 'Personal')
+  const dates = Object.keys(data);
+  const amounts = Object.values(data);
+
+
+if(category === 'Personal')
   {
     remPersonalBudget -= amount;
+    personal_in -= amount;
+    if(date in data) {
+      data[date][0] += amount;
+    }
+    else {
+      
+      data[date] = [amount, 0, 0, 0]
+    }
   }
   else if(category === "School")
   {
     remSchoolBudget -= amount;
+    if(date in data) {
+      data[date][1] += amount;
+    }
+    else {
+      data[date] = [0, amount, 0, 0]
+    }
   }
   else if(category === "Food")
   {
     remFoodBudget -= amount;
+    if(date in data) {
+      data[date][2] += amount;
+    }
+    else {
+      data[date] = [0, 0, amount, 0]
+    }
   }
   else if(category === "Miscellaneous")
   {
     remMiscellaneousBudget -= amount;
+    if(date in data) {
+      data[date][3] += amount;
+    }
+    else {
+      data[date] = [0, 0, 0, amount]
+    }
   }
-
   const remainingBudget = budgetDay[category] - balanceDay[Object.keys(budgetDay).indexOf(category)];
 
   let resultMessage = "";
