@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const moneyLimitMonth = [900, 900, 900, 900];
 const budgetDay = {
   Personal: moneyLimitMonth[0] / 30,
