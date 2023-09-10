@@ -206,18 +206,18 @@ if(category === 'Personal')
   });
 
   
-  balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
-  const remainingBudget = budgetDay[category] - balanceDay[Object.keys(budgetDay).indexOf(category)];
+  // balanceDay[Object.keys(budgetDay).indexOf(category)] += amount;
+  // const remainingBudget = budgetDay[category] - balanceDay[Object.keys(budgetDay).indexOf(category)];
 
-  let resultMessage = "";
+  // let resultMessage = "";
 
-  if (remainingBudget >= 0) {
-    resultMessage = `You spent $${amount.toFixed(2)} on ${category}. Congratulations, you're within your budget!`;
-  } else {
-    resultMessage = `You spent $${amount.toFixed(2)} on ${category}. You exceeded your budget by $${Math.abs(remainingBudget).toFixed(2)}.`;
-  }
-  console.log("MADE IT HERE");
-  document.getElementById("spendingResult").textContent = resultMessage;
+  // if (remainingBudget >= 0) {
+  //   resultMessage = `You spent $${amount.toFixed(2)} on ${category}. Congratulations, you're within your budget!`;
+  // } else {
+  //   resultMessage = `You spent $${amount.toFixed(2)} on ${category}. You exceeded your budget by $${Math.abs(remainingBudget).toFixed(2)}.`;
+  // }
+  // console.log("MADE IT HERE");
+  // document.getElementById("spendingResult").textContent = resultMessage;
   
   // Put values for remaining budget
   document.getElementById("remPersonalBudget").textContent = remPersonalBudget.toFixed(2);
