@@ -105,3 +105,11 @@ function spend() {
   document.getElementById("remMiscellaneousBudget").textContent = remMiscellaneousBudget.toFixed(2);
   document.getElementById("remainingBalance").textContent = remainingBalance.toFixed(2);
 }
+
+
+
+
+
+
+
+
