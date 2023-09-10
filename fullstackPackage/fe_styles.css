@@ -35,7 +35,7 @@
     transform: translateY(-50%);
   }
 
-  body {
+  .body {
     font-family: Arial, sans-serif;
     text-align: center;
     overflow-x: hidden; /* Add this line to prevent horizontal scrolling */
@@ -72,7 +72,12 @@
     transform: translate(-90%, 25%);
     width: 370px;
 }
-
+ img.animated-gif{
+  width: 240px;
+  height: auto;
+  -ms-transform:translate(250,-120%);
+  transform: translate(250%, -120%);
+ }
 .label {
     font-weight: bold;
 }
@@ -80,6 +85,24 @@
 .input[type="number"] {
     width: 80px;
 }
+
+.body {
+  background: radial-gradient(#fff, #aaa);
+  background-size: 100vw 100vh; 
+  overflow: hidden;
+  padding-top: 40vh;
+}
+
+.txt {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 12vmin;
+  font-weight: 700;
+  animation: netflix_style 3.5s infinite;
+  outline: none;
+  white-space: nowrap;
+}
+
 
 .result {
     position: absolute;
@@ -119,4 +142,38 @@
     -ms-transform: translate(-90%, 25%);
     transform: translate(-90%, 25%);
     width: 370px;
+}
+
+
+/* making home  button color */  
+.css-button-retro--red {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 30px 64px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border: 1px solid #000;
+  color: #000;
+  background: transparent;
+  z-index: 0;
+}
+.css-button-retro--red:hover:after {
+  top: 0;
+  left: 0;
+}
+.css-button-retro--red:after {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 5px;
+  left: 5px;
+  transition: 0.2s;
+  background-color: #ae3341;
 }

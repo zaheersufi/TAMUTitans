@@ -1,9 +1,6 @@
+
 import low from '/lowdb';
-import FileSync from '/lowdb/adapters/FileSync';
-
-
-const adapter = new FileSync('db.json');
-const db = low(adapter);
+import FileSync from 'lowdb/adapter/FileSync';
 
 const moneyLimitMonth = [900, 900, 900, 900];
 const budgetDay = {
