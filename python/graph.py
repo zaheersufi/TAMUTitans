@@ -54,7 +54,28 @@ values_in_column_a = read_column_a(file_name)
 values_in_column_b = read_column_b(file_name)
 values_in_column_c = read_column_c(file_name)
 
+# {"9/12/2023": [0, 0, 0, 2]} #Personal, School, Food, Misc
+def fill_by_dates(a, b, c):
+    arrayIndex = -1
+    if c == "Personal":
+        arrayIndex = 0
+    elif c == "School":
+        arrayIndex = 1
+    elif c == "Food":
+        arrayIndex = 2
+    elif c == "Miscellaneous":
+        arrayIndex = 3
+    dict = {}
+    for day in a:
+        if day not in dict:
+            dict[day] = (0, 0, 0, 0)
+            dict[day][arrayIndex] = b
+        else:
+            dict[day][arrayIndex] = b
+    return dict
 
+all_values = fill_by_dates(values_in_column_a, values_in_column_b, values_in_column_c)
+print(all_values)
 
 dates = list(values_in_column_a)
 values = list(values_in_column_b)
